@@ -24,9 +24,6 @@
         <div class="purchase-option"><h3>🏆 Legend - 15 دولار</h3><button class="buy-button" onclick="showPaymentPopup()">💳 شراء</button></div>
         <div class="purchase-option"><h3>🌟 Ultimate - 20 دولار</h3><button class="buy-button" onclick="showPaymentPopup()">💳 شراء</button></div>
     </div>
-</div>
-</div>
-</div>
 
 <div class="popup" id="paymentPopup">
     <h2>💳 اختر طريقة الدفع</h2>
@@ -34,14 +31,6 @@
     <button onclick="showVodafoneDetails()">📱 فودافون كاش</button>
     <button onclick="closePopup()">❌ إغلاق</button>
 </div>
-
-<div class="popup" id="paymentPopup">
-        <h2>💳 اختر طريقة الدفع</h2>
-        <button onclick="showBankDetails()">🏦 تحويل بنكي</button>
-        <button onclick="showVodafoneDetails()">📱 فودافون كاش</button>
-        <button onclick="closePopup()">❌ إغلاق</button>
-    </div>
-
     <div class="popup bank-details" id="bankDetails">
         <h2>🏦 تفاصيل التحويل البنكي</h2>
         <p>البنك: البنك العربي الوطني</p>
@@ -72,7 +61,6 @@
         <h2>📄 طرق إرسال الفاتورة</h2>
         <p>يرجى إرسال الفاتورة عبر إحدى الطرق التالية:</p>
         <button onclick="sendViaWhatsApp('vodafone')">إرسال عبر WhatsApp (فودافون كاش)</button>
-        <button onclick="sendViaWhatsApp('bank')">إرسال عبر WhatsApp (تحويل بنكي)</button>
         <button onclick="sendViaDiscord()">إرسال عبر Discord</button>
         <button onclick="closePopup()">❌ إغلاق</button>
     </div>

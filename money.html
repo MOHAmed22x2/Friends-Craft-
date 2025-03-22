@@ -132,9 +132,9 @@
         function sendViaWhatsApp(method) {
             let whatsappLink;
             if (method === 'vodafone') {
-                whatsappLink = "https://wa.me/01062406014?text=" + encodeURIComponent("تم إرسال الفاتورة عبر فودافون كاش");
+                whatsappLink = "https://wa.me/+201062406014?text=" + encodeURIComponent("تم إرسال الفاتورة عبر فودافون كاش");
             } else if (method === 'bank') {
-                whatsappLink = "https://wa.me/0583734991?text=" + encodeURIComponent("تم إرسال الفاتورة عبر تحويل بنكي");
+                whatsappLink = "https://wa.me/+966583734991?text=" + encodeURIComponent("تم إرسال الفاتورة عبر تحويل بنكي");
             }
             window.open(whatsappLink, "_blank");
         }

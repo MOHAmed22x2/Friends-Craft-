@@ -7,7 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;700&display=swap');
 
-      body {
+        body {
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -21,24 +21,27 @@
             text-align: center;
         }
 
-        .rank-container {
+        .container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px; /* تحديد الحد الأقصى للعرض */
+            width: 100%;
+            padding: 20px;
         }
 
-        .rank {
+        .box {
             background-color: #1e1e1e;
             padding: 15px;
-            width: 60%;
+            width: calc(33.33% - 20px); /* كل عنصر يأخذ 33% من العرض مع مسافة بين العناصر */
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
             text-align: center;
+            margin: 10px;
         }
 
-        .rank h3 {
+        .box h2 {
             color: #f1c40f;
         }
 
@@ -89,8 +92,19 @@
         .popup h2 {
             color: #f1c40f;
         }
-    </style>
-</head>
+
+        /* التكيف مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .box {
+                width: calc(50% - 20px); /* عرض العنصر 50% في الشاشات الصغيرة */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .box {
+                width: 100%; /* العنصر يأخذ 100% من العرض في الشاشات الأصغر */
+            }
+        }
     </style>
 </head>
 <body>
@@ -134,226 +148,8 @@
             <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
         </div>
     </div>
-   <div class="popup" id="paymentPopup">
-        <h2>💳 اختر طريقة الدفع</h2>
-        <button onclick="showBankDetails()">🏦 تحويل بنكي</button>
-        <button onclick="showVodafoneDetails()">📱 فودافون كاش</button>
-        <button onclick="closePopup()">❌ إغلاق</button>
-    </div>
 
-  <div class="popup" id="paymentPopup">
-        <h2>💳 اختر طريقة الدفع</h2>
-        <button onclick="showBankDetails()">🏦 تحويل بنكي</button>
-        <button onclick="showVodafoneDetails()">📱 فودافون كاش</button>
-        <button onclick="closePopup()">❌ إغلاق</button>
-    </div>
-
-    <div class="popup" id="bankDetails">
-        <h2>🏦 تفاصيل التحويل البنكي</h2>
-        <p><strong>البنك:</strong> البنك العربي الوطني</p>
-        <p><strong>اسم المستفيد:</strong> زياد تركي الجدعاني</p>
-        <p><strong>الآيبان:</strong> SA0330100991109061017302</p>
-        <p><strong>رقم الحساب:</strong> 991109061017302</p>
-        <button onclick="showUploadReceiptForm('تحويل بنكي')">📄 طرق إرسال الفاتورة</button>
-        <button onclick="closePopup()">❌ إغلاق</button>
-    </div>
-
-    <div class="popup" id="vodafoneDetails">
-        <h2>📱 بيانات الدفع عبر فودافون كاش</h2>
-        <p><strong>الاسم:</strong> mado</p>
-        <p><strong>رقم التحويل:</strong> 01062406014</p>
-        <button onclick="showUploadReceiptForm('فودافون كاش')">📄 طرق إرسال الفاتورة</button>
-        <button onclick="closePopup()">❌ إغلاق</button>
-    </div>
-
-    <div class="popup" id="uploadReceiptPopup">
-        <h2>📄 طرق إرسال الفاتورة</h2>
-        <p>يرجى إرسال الفاتورة عبر إحدى الطرق التالية:</p>
-        <button onclick="sendViaWhatsApp('vodafone')">📲 إرسال عبر WhatsApp (فودافون كاش)</button>
-        <button onclick="sendViaWhatsApp('bank')">🏦 إرسال عبر WhatsApp (تحويل بنكي)</button>
-        <button onclick="sendViaDiscord()">🎮 إرسال عبر Discord</button>
-        <button onclick="closePopup()">❌ إغلاق</button>
-    </div>
-
-    <script>
-        function showPaymentPopup() {
-            closePopup();
-            document.getElementById("paymentPopup").style.display = "block";
-        }
-
-        function showBankDetails() {
-            closePopup();
-            document.getElementById("bankDetails").style.display = "block";
-        }
-
-        function showVodafoneDetails() {
-            closePopup();
-            document.getElementById("vodafoneDetails").style.display = "block";
-        }
-
-        function showUploadReceiptForm(paymentMethod) {
-            closePopup();
-            document.getElementById("uploadReceiptPopup").style.display = "block";
-        }
-
-        function closePopup() {
-            document.querySelectorAll(".popup").forEach(popup => {
-                popup.style.display = "none";
-            });
-        }
-
-        function sendViaWhatsApp(method) {
-            let whatsappLink = method === 'vodafone' ? 
-                "https://wa.me/+201062406014?text=تم إرسال الفاتورة عبر فودافون كاش" :
-                "https://wa.me/+966583734991?text=تم إرسال الفاتورة عبر تحويل بنكي";
-            window.open(whatsappLink, "_blank");
-        }
-
-        function sendViaDiscord() {
-            window.open("<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎁 موارد و مفاتيح | Friends Craft</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;700&display=swap');
-
-      body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: url('images/pack.png') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            font-family: 'Cairo', sans-serif;
-            text-align: center;
-        }
-
-        .rank-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .rank {
-            background-color: #1e1e1e;
-            padding: 15px;
-            width: 60%;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
-            text-align: center;
-        }
-
-        .rank h3 {
-            color: #f1c40f;
-        }
-
-        .buy-button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            margin-top: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .buy-button:hover {
-            background-color: #218838;
-        }
-
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
-            width: 350px;
-            text-align: center;
-        }
-
-        .popup button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            margin: 5px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .popup button:hover {
-            background-color: #218838;
-        }
-
-        .popup h2 {
-            color: #f1c40f;
-        }
-    </style>
-</head>
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>🎁 متجر الموارد و المفاتيح</h1>
-    </header>
-
-    <div class="container">
-        <div class="box">
-            <h2>🔑 EPIC</h2>
-            <p>السعر: 1 دولار</p>
-            <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
-        </div>
-        <div class="box">
-            <h2>🔥 MVP</h2>
-            <p>السعر: 2 دولار</p>
-            <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
-        </div>
-        <div class="box">
-            <h2>👑 LEGEND</h2>
-            <p>السعر: 4 دولار</p>
-            <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
-        </div>
-        <div class="box">
-            <h2>🛠 موارد مميزة</h2>
-            <img src="images/resource1.png" alt="موارد مميزة">
-            <p>السعر: 5 دولار</p>
-            <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
-        </div>
-        <div class="box">
-            <h2>⚔️ معدات قتالية</h2>
-            <img src="images/resource2.png" alt="معدات قتالية">
-            <p>السعر: 7 دولار</p>
-            <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
-        </div>
-        <div class="box">
-            <h2>🏹 أدوات خاصة</h2>
-            <img src="images/resource3.png" alt="أدوات خاصة">
-            <p>السعر: 6 دولار</p>
-            <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
-        </div>
-    </div>
-   <div class="popup" id="paymentPopup">
-        <h2>💳 اختر طريقة الدفع</h2>
-        <button onclick="showBankDetails()">🏦 تحويل بنكي</button>
-        <button onclick="showVodafoneDetails()">📱 فودافون كاش</button>
-        <button onclick="closePopup()">❌ إغلاق</button>
-    </div>
-
-  <div class="popup" id="paymentPopup">
+    <div class="popup" id="paymentPopup">
         <h2>💳 اختر طريقة الدفع</h2>
         <button onclick="showBankDetails()">🏦 تحويل بنكي</button>
         <button onclick="showVodafoneDetails()">📱 فودافون كاش</button>
@@ -425,7 +221,5 @@
             window.open("https://discord.gg/JaQFXXX8", "_blank");
         }
     </script>
-
-
 </body>
 </html>

@@ -10,36 +10,59 @@
         body {
             margin: 0;
             padding: 0;
-            height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             background: url('images/pack.png') no-repeat center center fixed;
             background-size: cover;
             color: white;
             font-family: 'Cairo', sans-serif;
+            height: 100vh;
+            flex-direction: column;
             text-align: center;
         }
 
-        .rank-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
+        h1 {
+            margin: 20px 0;
+            font-size: 2rem;
+            color: #f1c40f;
         }
 
-        .rank {
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .box {
             background-color: #1e1e1e;
-            padding: 15px;
-            width: 60%;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
             text-align: center;
+            width: 200px;
+            transition: transform 0.3s ease;
         }
 
-        .rank h3 {
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .box img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .box h2 {
+            font-size: 1.2rem;
             color: #f1c40f;
+        }
+
+        .box p {
+            font-size: 1rem;
+            margin: 10px 0;
         }
 
         .buy-button {
@@ -50,7 +73,8 @@
             margin-top: 10px;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 14px;
+            transition: background-color 0.3s;
         }
 
         .buy-button:hover {
@@ -67,7 +91,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
-            width: 350px;
+            width: 300px;
             text-align: center;
         }
 
@@ -79,7 +103,8 @@
             margin: 5px;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 14px;
+            transition: background-color 0.3s;
         }
 
         .popup button:hover {
@@ -93,7 +118,7 @@
         .discount-input {
             margin-top: 10px;
             padding: 5px;
-            font-size: 16px;
+            font-size: 14px;
             border-radius: 5px;
         }
     </style>
@@ -106,35 +131,38 @@
 
     <div class="container">
         <div class="box">
+            <img src="images/epic-icon.png" alt="EPIC">
             <h2>🔑 EPIC</h2>
             <p>السعر: 1 دولار</p>
             <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
         </div>
         <div class="box">
+            <img src="images/mvp-icon.png" alt="MVP">
             <h2>🔥 MVP</h2>
             <p>السعر: 2 دولار</p>
             <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
         </div>
         <div class="box">
+            <img src="images/legend-icon.png" alt="LEGEND">
             <h2>👑 LEGEND</h2>
             <p>السعر: 4 دولار</p>
             <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
         </div>
         <div class="box">
+            <img src="images/resource1-icon.png" alt="موارد مميزة">
             <h2>🛠 موارد مميزة</h2>
-            <img src="images/resource1.png" alt="موارد مميزة">
             <p>السعر: 5 دولار</p>
             <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
         </div>
         <div class="box">
+            <img src="images/resource2-icon.png" alt="معدات قتالية">
             <h2>⚔️ معدات قتالية</h2>
-            <img src="images/resource2.png" alt="معدات قتالية">
             <p>السعر: 7 دولار</p>
             <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
         </div>
         <div class="box">
+            <img src="images/resource3-icon.png" alt="أدوات خاصة">
             <h2>🏹 أدوات خاصة</h2>
-            <img src="images/resource3.png" alt="أدوات خاصة">
             <p>السعر: 6 دولار</p>
             <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
         </div>

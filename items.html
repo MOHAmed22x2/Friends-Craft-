@@ -52,43 +52,32 @@
             width: 300px;
         }
 
+        .box img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
         .box h2 {
             color: #ffcc00;
         }
 
-        .price-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .price-list li {
-            font-size: 20px;
-            margin: 10px 0;
-        }
-
-        .back-button {
+        .buy-button {
             background-color: #ffcc00;
             color: black;
-            padding: 15px 30px;
+            padding: 10px 20px;
             border-radius: 8px;
-            font-size: 20px;
-            text-decoration: none;
+            font-size: 18px;
             cursor: pointer;
-            margin-top: 30px;
-            display: inline-block;
             transition: background-color 0.3s ease, transform 0.3s ease;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            display: block;
+            margin: 10px auto;
+            text-decoration: none;
         }
 
-        .back-button:hover {
+        .buy-button:hover {
             background-color: #ffaa00;
-            transform: scale(1.1);
-        }
-
-        .resource-img {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 10px;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -100,25 +89,59 @@
 
     <div class="container">
         <div class="box">
-            <h2>🔑 بيع المفاتيح</h2>
-            <ul class="price-list">
-                <li>EPIC 🔹 - 1 دولار</li>
-                <li>MVP 🔥 - 2 دولار</li>
-                <li>LEGEND 👑 - 4 دولار</li>
-            </ul>
+            <h2>🔑 EPIC</h2>
+            <img src="images/epic.png" alt="EPIC Key">
+            <p>السعر: 1 دولار</p>
+            <button class="buy-button" onclick="showPaymentPopup()">💰 شراء</button>
         </div>
         <div class="box">
-            <h2>🛠️ موارد داخل اللعبة</h2>
-            <img src="images/resource1.png" alt="موارد 1" class="resource-img">
-            <p>⚔️ أدوات قتالية - 5 دولار</p>
-            <img src="images/resource2.png" alt="موارد 2" class="resource-img">
-            <p>🛡️ دروع وأدوات - 7 دولار</p>
-            <img src="images/resource3.png" alt="موارد 3" class="resource-img">
-            <p>💎 عناصر نادرة - 10 دولار</p>
+            <h2>🔥 MVP</h2>
+            <img src="images/mvp.png" alt="MVP Key">
+            <p>السعر: 2 دولار</p>
+            <button class="buy-button" onclick="showPaymentPopup()">💰 شراء</button>
+        </div>
+        <div class="box">
+            <h2>👑 LEGEND</h2>
+            <img src="images/legend.png" alt="LEGEND Key">
+            <p>السعر: 4 دولار</p>
+            <button class="buy-button" onclick="showPaymentPopup()">💰 شراء</button>
+        </div>
+        <div class="box">
+            <h2>🛠 موارد مميزة</h2>
+            <img src="/mnt/data/Screenshot_2024-07-27_230833.png" alt="موارد مميزة">
+            <p>السعر: 5 دولار</p>
+            <button class="buy-button" onclick="showPaymentPopup()">💰 شراء</button>
+        </div>
+        <div class="box">
+            <h2>⚔️ معدات قتالية</h2>
+            <img src="/mnt/data/Screenshot_2024-07-28_002609 .png" alt="معدات قتالية">
+            <p>السعر: 7 دولار</p>
+            <button class="buy-button" onclick="showPaymentPopup()">💰 شراء</button>
+        </div>
+        <div class="box">
+            <h2>🏹 أدوات خاصة</h2>
+            <img src="/mnt/data/Screenshot_2024-07-27_233226.png" alt="أدوات خاصة">
+            <p>السعر: 6 دولار</p>
+            <button class="buy-button" onclick="showPaymentPopup()">💰 شراء</button>
         </div>
     </div>
 
-    <a href="shop.html" class="back-button">🔙 العودة للمتجر</a>
+    <div class="popup" id="paymentPopup">
+        <h2>💳 اختر طريقة الدفع</h2>
+        <button onclick="showBankDetails()">🏦 تحويل بنكي</button>
+        <button onclick="showVodafoneDetails()">📱 فودافون كاش</button>
+        <button onclick="closePopup()">❌ إغلاق</button>
+    </div>
+
+    <script>
+        function showPaymentPopup() {
+            document.getElementById("paymentPopup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("paymentPopup").style.display = "none";
+        }
+    </script>
 
 </body>
 </html>

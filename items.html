@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎁 موارد و مفاتيح | Friends Craft</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: url('images/pack.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            text-align: center;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            border-bottom: 3px solid #ffbb00;
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin: 0;
+            color: white;
+        }
+
+        .container {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .box {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+        }
+
+        .box h2 {
+            color: #ffcc00;
+        }
+
+        .price-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .price-list li {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .back-button {
+            background-color: #ffcc00;
+            color: black;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 20px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 30px;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-button:hover {
+            background-color: #ffaa00;
+            transform: scale(1.1);
+        }
+
+        .resource-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎁 متجر الموارد و المفاتيح</h1>
+    </header>
+
+    <div class="container">
+        <div class="box">
+            <h2>🔑 بيع المفاتيح</h2>
+            <ul class="price-list">
+                <li>EPIC 🔹 - 1 دولار</li>
+                <li>MVP 🔥 - 2 دولار</li>
+                <li>LEGEND 👑 - 4 دولار</li>
+            </ul>
+        </div>
+        <div class="box">
+            <h2>🛠️ موارد داخل اللعبة</h2>
+            <img src="images/resource1.png" alt="موارد 1" class="resource-img">
+            <p>⚔️ أدوات قتالية - 5 دولار</p>
+            <img src="images/resource2.png" alt="موارد 2" class="resource-img">
+            <p>🛡️ دروع وأدوات - 7 دولار</p>
+            <img src="images/resource3.png" alt="موارد 3" class="resource-img">
+            <p>💎 عناصر نادرة - 10 دولار</p>
+        </div>
+    </div>
+
+    <a href="shop.html" class="back-button">🔙 العودة للمتجر</a>
+
+</body>
+</html>

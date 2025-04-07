@@ -8,10 +8,6 @@
      body {
             margin: 0;
             padding: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             background: url('images/pack.png') no-repeat center center fixed;
             background-size: cover;
             color: white;
@@ -19,28 +15,47 @@
             text-align: center;
         }
 
-        .rank-container {
+        .container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
         }
 
-        .rank {
+        .box {
             background-color: #1e1e1e;
-            padding: 15px;
-            width: 60%;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            width: 400px;  /* تكبير العرض */
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
             text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        .rank h3 {
-            color: #f1c40f;
+        .box:hover {
+            transform: scale(1.05);
         }
 
-        .buy-button {
+        .box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .box img {
+            width: 400px; /* تكبير الصور */
+            height: 400px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .box img:hover {
+            transform: scale(1.1);
+        }
+
+         .buy-button {
             background-color: #28a745;
             color: white;
             border: none;
@@ -89,8 +104,6 @@
         }
     </style>
 </head>
-<body>
-
     <h1>🎉 مرحبًا بك في متجر FriendCraft!</h1>
 
     <div class="rank-container">

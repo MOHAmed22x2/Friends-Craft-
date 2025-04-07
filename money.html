@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>💰 شراء فلوس داخل اللعبة</title>
     <style>
-   body {
+ body {
             margin: 0;
             padding: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             background: url('images/pack.png') no-repeat center center fixed;
             background-size: cover;
             color: white;
@@ -19,39 +15,93 @@
             text-align: center;
         }
 
-        .purchase-container {
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
             padding: 20px;
         }
-        .purchase-option {
-            background-color: #444;
-            padding: 20px;
-            margin: 10px auto;
+
+        .box {
+            background-color: #1e1e1e;
+            padding: 25px;
+            width: 400px;  /* تكبير العرض */
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .box img {
+            width: 400px; /* تكبير الصور */
+            height: 400px;
+            margin-bottom: 20px;
             border-radius: 10px;
-            width: 80%;
-            max-width: 400px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
         }
-        .purchase-option h3 { margin: 10px 0; }
-        .purchase-option p { color: #ccc; }
-        .purchase-option button {
-            background-color: #ffcc00;
+
+        .box img:hover {
+            transform: scale(1.1);
+        }
+
+         .buy-button {
+            background-color: #28a745;
+            color: white;
             border: none;
-            padding: 10px;
+            padding: 10px 15px;
+            margin-top: 10px;
             cursor: pointer;
-            width: 100%;
             border-radius: 5px;
+            font-size: 16px;
         }
+
+        .buy-button:hover {
+            background-color: #218838;
+        }
+
         .popup {
             display: none;
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #222;
+            background-color: #1e1e1e;
             padding: 20px;
             border-radius: 10px;
-            width: 300px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+            width: 350px;
+            text-align: center;
         }
-        .popup button { margin: 5px 0; padding: 10px; cursor: pointer; width: 100%; }
+
+        .popup button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .popup button:hover {
+            background-color: #218838;
+        }
+
+        .popup h2 {
+            color: #f1c40f;
+        }
     </style>
 </head>
 <body>

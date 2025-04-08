@@ -1,57 +1,109 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>إنشاء حساب</title>
-  <style>
-    body {
-      font-family: Arial;
-      background-color: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .register-box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      width: 300px;
-      text-align: center;
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background-color: #2196F3;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    a {
-      display: block;
-      margin-top: 10px;
-      color: #333;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .signup-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="register-box">
-    <h2>إنشاء حساب 🆕</h2>
-    <form action="register.php" method="POST">
-      <input type="text" name="username" placeholder="اسم المستخدم" required>
-      <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-      <input type="password" name="password" placeholder="كلمة المرور" required>
-      <button type="submit">تسجيل</button>
-    </form>
-    <a href="login.html">عندك حساب؟ سجل دخول</a>
-  </div>
+    <div class="signup-container">
+        <h2>إنشاء حساب</h2>
+        <form id="signup-form">
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">إنشاء حساب</button>
+        </form>
+        <p id="error-message" class="error-message">حدث خطأ! حاول مجددًا</p>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js"></script>
+
+    <script>
+        // إعداد Firebase
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY", // استبدلها بمفتاح API الخاص بك
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com", // استبدلها بمعرف مشروعك
+            projectId: "YOUR_PROJECT_ID", // استبدلها بمعرف مشروعك
+            storageBucket: "YOUR_PROJECT_ID.appspot.com", // استبدلها بمعرف مشروعك
+            messagingSenderId: "SENDER_ID",
+            appId: "YOUR_APP_ID",
+        };
+
+        // تهيئة Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        document.getElementById("signup-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    // إرسال رسالة تأكيد للبريد الإلكتروني
+                    user.sendEmailVerification().then(() => {
+                        // إذا تم إرسال التأكيد بنجاح، سيتم توجيه المستخدم إلى الصفحة الرئيسية
+                        window.location.href = "index.html"; // استبدلها بعنوان صفحتك الرئيسية
+                    }).catch((error) => {
+                        console.error(error.message);
+                        document.getElementById("error-message").style.display = "block";
+                    });
+                })
+                .catch((error) => {
+                    console.error(error.message);
+                    document.getElementById("error-message").style.display = "block";
+                });
+        });
+    </script>
 </body>
 </html>
+

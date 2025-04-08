@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>إنشاء حساب</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .register-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    a {
+      display: block;
+      margin-top: 10px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-box">
+    <h2>إنشاء حساب 🆕</h2>
+    <form action="register.php" method="POST">
+      <input type="text" name="username" placeholder="اسم المستخدم" required>
+      <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+      <input type="password" name="password" placeholder="كلمة المرور" required>
+      <button type="submit">تسجيل</button>
+    </form>
+    <a href="login.html">عندك حساب؟ سجل دخول</a>
+  </div>
+</body>
+</html>

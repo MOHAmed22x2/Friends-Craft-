@@ -19,8 +19,6 @@
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             width: 300px;
-        }
-        .login-container h2 {
             text-align: center;
         }
         input[type="email"], input[type="password"] {
@@ -45,7 +43,6 @@
         .error-message {
             color: red;
             display: none;
-            text-align: center;
         }
     </style>
 </head>
@@ -55,31 +52,55 @@
         <form id="login-form">
             <label for="email">البريد الإلكتروني:</label>
             <input type="email" id="email" name="email" required>
-            
+
             <label for="password">كلمة المرور:</label>
             <input type="password" id="password" name="password" required>
 
-            <button type="submit">دخول</button>
+            <button type="submit">تسجيل الدخول</button>
         </form>
         <p id="error-message" class="error-message">البريد الإلكتروني أو كلمة المرور غير صحيحة</p>
     </div>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js"></script>
+
     <script>
+        // إعداد Firebase
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY", // استبدلها بمفتاح API الخاص بك
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com", // استبدلها بمعرف مشروعك
+            projectId: "YOUR_PROJECT_ID", // استبدلها بمعرف مشروعك
+            storageBucket: "YOUR_PROJECT_ID.appspot.com", // استبدلها بمعرف مشروعك
+            messagingSenderId: "SENDER_ID",
+            appId: "YOUR_APP_ID",
+        };
+
+        // تهيئة Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
         document.getElementById("login-form").addEventListener("submit", function(event) {
             event.preventDefault();
 
-            // استلام البيانات من النموذج
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
 
-            // تحقق من البيانات (أنت يمكن أن تستبدل هذه القيم بقيم من قاعدة بيانات في التطبيق الحقيقي)
-            if (email === "test@example.com" && password === "password123") {
-                // إذا كانت البيانات صحيحة، تحويل المستخدم إلى الصفحة الرئيسية
-                window.location.href = "index.html"; // استبدل هذا بعنوان الصفحة الرئيسية لموقعك
-            } else {
-                // إذا كانت البيانات غير صحيحة
-                document.getElementById("error-message").style.display = "block";
-            }
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    if (user.emailVerified) {
+                        // إذا تم التحقق من البريد الإلكتروني، تحويل المستخدم إلى الصفحة الرئيسية
+                        window.location.href = "index.html"; // استبدلها بعنوان صفحتك الرئيسية
+                    } else {
+                        // إذا لم يتم التحقق من البريد الإلكتروني
+                        alert("يرجى التحقق من بريدك الإلكتروني أولاً.");
+                    }
+                })
+                .catch((error) => {
+                    console.error(error.message);
+                    document.getElementById("error-message").style.display = "block";
+                });
         });
     </script>
 </body>

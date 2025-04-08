@@ -1,56 +1,86 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>تسجيل الدخول</title>
-  <style>
-    body {
-      font-family: Arial;
-      background-color: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .login-box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      width: 300px;
-      text-align: center;
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    a {
-      display: block;
-      margin-top: 10px;
-      color: #333;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .login-container h2 {
+            text-align: center;
+        }
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            display: none;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-  <div class="login-box">
-    <h2>تسجيل الدخول 🔐</h2>
-    <form action="login.php" method="POST">
-      <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-      <input type="password" name="password" placeholder="كلمة المرور" required>
-      <button type="submit">دخول</button>
-    </form>
-    <a href="register.html">ما عندك حساب؟ سجل الآن</a>
-  </div>
+    <div class="login-container">
+        <h2>تسجيل الدخول</h2>
+        <form id="login-form">
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">دخول</button>
+        </form>
+        <p id="error-message" class="error-message">البريد الإلكتروني أو كلمة المرور غير صحيحة</p>
+    </div>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // استلام البيانات من النموذج
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // تحقق من البيانات (أنت يمكن أن تستبدل هذه القيم بقيم من قاعدة بيانات في التطبيق الحقيقي)
+            if (email === "test@example.com" && password === "password123") {
+                // إذا كانت البيانات صحيحة، تحويل المستخدم إلى الصفحة الرئيسية
+                window.location.href = "index.html"; // استبدل هذا بعنوان الصفحة الرئيسية لموقعك
+            } else {
+                // إذا كانت البيانات غير صحيحة
+                document.getElementById("error-message").style.display = "block";
+            }
+        });
+    </script>
 </body>
 </html>

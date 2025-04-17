@@ -10,23 +10,33 @@
     body {
       margin: 0;
       padding: 0;
-      background: url('images/pack.png') no-repeat center center fixed;
+      background: linear-gradient(to right, #1f1c2c, #928DAB), url('images/pack.png') no-repeat center center fixed;
       background-size: cover;
       color: white;
       font-family: 'Cairo', sans-serif;
       text-align: center;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      flex-direction: column;
+      animation: fadeIn 2s ease-in;
+    }
+
+    /* تأثير Fade In */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
       margin-top: 20px;
-      font-size: 36px;
-      font-weight: bold;
-      color: #ffd700;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+      font-size: 35px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ff9900, #ffcc00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 30px;
     }
 
     .purchase-container {
@@ -38,62 +48,43 @@
     }
 
     .purchase-option {
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: #333;
       padding: 25px;
       width: 300px;
       border-radius: 15px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      text-align: center;
     }
 
     .purchase-option:hover {
       transform: scale(1.05);
-      box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.5);
-    }
-
-    .purchase-option img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      transition: transform 0.3s ease;
-    }
-
-    .purchase-option img:hover {
-      transform: scale(1.1);
+      box-shadow: 0px 0px 30px rgba(255, 170, 0, 0.5);
     }
 
     .purchase-option h3 {
-      font-size: 24px;
-      font-weight: 700;
-      color: #ffd700;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
 
     .purchase-option p {
       font-size: 18px;
-      margin: 10px 0;
-      color: #fff;
+      margin-bottom: 10px;
     }
 
     .purchase-option button {
-      background-color: #28a745;
+      background-color: #ff9900;
       color: white;
       border: none;
-      padding: 12px 20px;
-      margin-top: 15px;
+      padding: 10px 15px;
       cursor: pointer;
       border-radius: 5px;
-      font-size: 18px;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s, transform 0.2s ease;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
     }
 
     .purchase-option button:hover {
-      background-color: #218838;
-      transform: scale(1.05);
+      background-color: #ffaa00;
     }
 
     .popup {
@@ -102,41 +93,48 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: #1e1e1e;
-      padding: 30px;
+      background-color: #222;
+      padding: 20px;
       border-radius: 10px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
-      width: 400px;
+      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+      width: 350px;
       text-align: center;
       z-index: 1000;
+      animation: popupIn 0.5s ease-out;
+    }
+
+    @keyframes popupIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .popup h2 {
       color: #f1c40f;
-      font-size: 26px;
-      margin-bottom: 20px;
     }
 
     .popup button {
       background-color: #28a745;
       color: white;
       border: none;
-      padding: 12px 20px;
+      padding: 10px 15px;
       margin-top: 10px;
       cursor: pointer;
       border-radius: 5px;
       font-size: 16px;
-      width: 100%;
     }
 
     .popup button:hover {
       background-color: #218838;
     }
 
+    /* تحسين التنسيق للأجهزة الصغيرة */
     @media (max-width: 768px) {
       .purchase-option {
-        width: 250px;
-        padding: 20px;
+        width: 90%;
+      }
+
+      .purchase-container {
+        flex-direction: column;
       }
 
       h1 {
@@ -147,33 +145,27 @@
 </head>
 <body>
 
-  <div>
-    <h1>💰 شراء فلوس داخل اللعبة</h1>
-    <div class="purchase-container">
-      <div class="purchase-option">
-        <img src="images/500k-coins.png" alt="500,000 عملة">
-        <h3>500,000 عملة</h3>
-        <p>1$</p>
-        <button onclick="showPaymentPopup()">شراء</button>
-      </div>
-      <div class="purchase-option">
-        <img src="images/1m-coins.png" alt="1M عملة">
-        <h3>1M عملة</h3>
-        <p>2$</p>
-        <button onclick="showPaymentPopup()">شراء</button>
-      </div>
-      <div class="purchase-option">
-        <img src="images/10m-coins.png" alt="10M عملة">
-        <h3>10M عملة</h3>
-        <p>10$</p>
-        <button onclick="showPaymentPopup()">شراء</button>
-      </div>
-      <div class="purchase-option">
-        <img src="images/100m-coins.png" alt="100M عملة">
-        <h3>100M عملة</h3>
-        <p>25$</p>
-        <button onclick="showPaymentPopup()">شراء</button>
-      </div>
+  <h1>💰 شراء فلوس داخل اللعبة</h1>
+  <div class="purchase-container">
+    <div class="purchase-option">
+      <h3>500,000 عملة</h3>
+      <p>1$</p>
+      <button onclick="showPaymentPopup()">شراء</button>
+    </div>
+    <div class="purchase-option">
+      <h3>1M عملة</h3>
+      <p>2$</p>
+      <button onclick="showPaymentPopup()">شراء</button>
+    </div>
+    <div class="purchase-option">
+      <h3>10M عملة</h3>
+      <p>10$</p>
+      <button onclick="showPaymentPopup()">شراء</button>
+    </div>
+    <div class="purchase-option">
+      <h3>100M عملة</h3>
+      <p>25$</p>
+      <button onclick="showPaymentPopup()">شراء</button>
     </div>
   </div>
 
@@ -196,25 +188,4 @@
   </div>
 
   <div class="popup" id="vodafoneDetails">
-    <h2>📱 بيانات الدفع عبر فودافون كاش</h2>
-    <p><strong>الاسم:</strong> mado</p>
-    <p><strong>رقم التحويل:</strong> 01062406014</p>
-    <button onclick="showUploadReceiptForm()">📄 طرق إرسال الفاتورة</button>
-    <button onclick="closePopup()">❌ إغلاق</button>
-  </div>
-
-  <div class="popup" id="uploadReceiptPopup">
-    <h2>📄 طرق إرسال الفاتورة</h2>
-    <p>يرجى إرسال الفاتورة عبر إحدى الطرق التالية:</p>
-    <button onclick="sendViaWhatsApp('vodafone')">📲 إرسال عبر WhatsApp (فودافون كاش)</button>
-    <button onclick="sendViaWhatsApp('bank')">🏦 إرسال عبر WhatsApp (تحويل بنكي)</button>
-    <button onclick="sendViaDiscord()">🎮 إرسال عبر Discord</button>
-    <button onclick="closePopup()">❌ إغلاق</button>
-  </div>
-
-  <script>
-    function showPaymentPopup() {
-      closePopup();
-      document.getElementById("paymentPopup").style.display = "block";
-    }
-
+    <h2>📱 بيانات الدفع عبر

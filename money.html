@@ -15,10 +15,18 @@
       color: white;
       font-family: 'Cairo', sans-serif;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
     h1 {
       margin-top: 20px;
+      font-size: 36px;
+      font-weight: bold;
+      color: #ffd700;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
     }
 
     .purchase-container {
@@ -30,31 +38,62 @@
     }
 
     .purchase-option {
-      background-color: #1e1e1e;
+      background-color: rgba(0, 0, 0, 0.7);
       padding: 25px;
-      width: 400px;
+      width: 300px;
       border-radius: 15px;
       box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
     }
 
     .purchase-option:hover {
       transform: scale(1.05);
+      box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.5);
+    }
+
+    .purchase-option img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .purchase-option img:hover {
+      transform: scale(1.1);
+    }
+
+    .purchase-option h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffd700;
+    }
+
+    .purchase-option p {
+      font-size: 18px;
+      margin: 10px 0;
+      color: #fff;
     }
 
     .purchase-option button {
       background-color: #28a745;
       color: white;
       border: none;
-      padding: 10px 15px;
-      margin-top: 10px;
+      padding: 12px 20px;
+      margin-top: 15px;
       cursor: pointer;
       border-radius: 5px;
-      font-size: 16px;
+      font-size: 18px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s, transform 0.2s ease;
     }
 
     .purchase-option button:hover {
       background-color: #218838;
+      transform: scale(1.05);
     }
 
     .popup {
@@ -64,57 +103,77 @@
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: #1e1e1e;
-      padding: 20px;
+      padding: 30px;
       border-radius: 10px;
       box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
-      width: 350px;
+      width: 400px;
       text-align: center;
       z-index: 1000;
     }
 
     .popup h2 {
       color: #f1c40f;
+      font-size: 26px;
+      margin-bottom: 20px;
     }
 
     .popup button {
       background-color: #28a745;
       color: white;
       border: none;
-      padding: 10px 15px;
+      padding: 12px 20px;
       margin-top: 10px;
       cursor: pointer;
       border-radius: 5px;
       font-size: 16px;
+      width: 100%;
     }
 
     .popup button:hover {
       background-color: #218838;
     }
+
+    @media (max-width: 768px) {
+      .purchase-option {
+        width: 250px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <h1>💰 شراء فلوس داخل اللعبة</h1>
-  <div class="purchase-container">
-    <div class="purchase-option">
-      <h3>500,000 عملة</h3>
-      <p>1$</p>
-      <button onclick="showPaymentPopup()">شراء</button>
-    </div>
-    <div class="purchase-option">
-      <h3>1M عملة</h3>
-      <p>2$</p>
-      <button onclick="showPaymentPopup()">شراء</button>
-    </div>
-    <div class="purchase-option">
-      <h3>10M عملة</h3>
-      <p>10$</p>
-      <button onclick="showPaymentPopup()">شراء</button>
-    </div>
-    <div class="purchase-option">
-      <h3>100M عملة</h3>
-      <p>25$</p>
-      <button onclick="showPaymentPopup()">شراء</button>
+  <div>
+    <h1>💰 شراء فلوس داخل اللعبة</h1>
+    <div class="purchase-container">
+      <div class="purchase-option">
+        <img src="images/500k-coins.png" alt="500,000 عملة">
+        <h3>500,000 عملة</h3>
+        <p>1$</p>
+        <button onclick="showPaymentPopup()">شراء</button>
+      </div>
+      <div class="purchase-option">
+        <img src="images/1m-coins.png" alt="1M عملة">
+        <h3>1M عملة</h3>
+        <p>2$</p>
+        <button onclick="showPaymentPopup()">شراء</button>
+      </div>
+      <div class="purchase-option">
+        <img src="images/10m-coins.png" alt="10M عملة">
+        <h3>10M عملة</h3>
+        <p>10$</p>
+        <button onclick="showPaymentPopup()">شراء</button>
+      </div>
+      <div class="purchase-option">
+        <img src="images/100m-coins.png" alt="100M عملة">
+        <h3>100M عملة</h3>
+        <p>25$</p>
+        <button onclick="showPaymentPopup()">شراء</button>
+      </div>
     </div>
   </div>
 
@@ -159,36 +218,3 @@
       document.getElementById("paymentPopup").style.display = "block";
     }
 
-    function showBankDetails() {
-      closePopup();
-      document.getElementById("bankDetails").style.display = "block";
-    }
-
-    function showVodafoneDetails() {
-      closePopup();
-      document.getElementById("vodafoneDetails").style.display = "block";
-    }
-
-    function showUploadReceiptForm() {
-      closePopup();
-      document.getElementById("uploadReceiptPopup").style.display = "block";
-    }
-
-    function closePopup() {
-      document.querySelectorAll(".popup").forEach(p => p.style.display = "none");
-    }
-
-    function sendViaWhatsApp(method) {
-      let whatsappLink = method === 'vodafone'
-        ? "https://wa.me/+201062406014?text=تم إرسال الفاتورة عبر فودافون كاش"
-        : "https://wa.me/+966583734991?text=تم إرسال الفاتورة عبر تحويل بنكي";
-      window.open(whatsappLink, "_blank");
-    }
-
-    function sendViaDiscord() {
-      window.open("https://discord.gg/JaQFXXX8", "_blank");
-    }
-  </script>
-
-</body>
-</html>

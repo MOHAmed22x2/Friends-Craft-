@@ -212,4 +212,38 @@
   </div>
 
   <div class="popup" id="vodafoneDetails">
-    <h2>📱 بيانات الدفع عبر
+    <h2>📱 بيانات الدفع عبر فودافون كاش</h2>
+    <p><strong>رقم الموبايل:</strong> 01012345678</p>
+    <p><strong>الاسم:</strong> زياد تركي الجدعاني</p>
+    <button onclick="closePopup()">❌ إغلاق</button>
+  </div>
+
+  <script>
+    // Show the payment popup
+    function showPaymentPopup() {
+      document.getElementById("paymentPopup").style.display = "block";
+    }
+
+    // Show the bank details popup
+    function showBankDetails() {
+      document.getElementById("paymentPopup").style.display = "none";
+      document.getElementById("bankDetails").style.display = "block";
+    }
+
+    // Show the Vodafone details popup
+    function showVodafoneDetails() {
+      document.getElementById("paymentPopup").style.display = "none";
+      document.getElementById("vodafoneDetails").style.display = "block";
+    }
+
+    // Close any open popup
+    function closePopup() {
+      var popups = document.querySelectorAll('.popup');
+      popups.forEach(function(popup) {
+        popup.style.display = 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>

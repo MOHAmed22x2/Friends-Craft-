@@ -72,20 +72,25 @@
     }
 
     .buy-button {
-      background-color: #28a745;
+      background-color: #f1c40f; /* لون الزر الأصفر */
       color: white;
       border: none;
-      padding: 12px 20px;
-      margin-top: 10px;
+      padding: 15px 30px;
       cursor: pointer;
-      border-radius: 5px;
-      font-size: 16px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      border-radius: 8px; /* زوايا الزر مدورة */
+      font-size: 18px; /* حجم الخط أكبر */
+      transition: all 0.3s ease;
+      margin-top: 15px;
     }
 
     .buy-button:hover {
-      background-color: #218838;
-      transform: scale(1.1);
+      background-color: #e67e22; /* لون مائل إلى البرتقالي عند التمرير */
+      transform: scale(1.1); /* تكبير الزر قليلاً عند التمرير */
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3); /* إضافة تأثير الظل */
+    }
+
+    .buy-button:active {
+      transform: scale(1.05); /* تأثير عند الضغط على الزر */
     }
 
     .popup {
@@ -174,22 +179,22 @@
     <div class="purchase-option">
       <h3>500,000 عملة</h3>
       <p>1$</p>
-      <button onclick="showPaymentPopup()">شراء</button>
+      <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
     </div>
     <div class="purchase-option">
       <h3>1M عملة</h3>
       <p>2$</p>
-      <button onclick="showPaymentPopup()">شراء</button>
+      <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
     </div>
     <div class="purchase-option">
       <h3>10M عملة</h3>
       <p>10$</p>
-      <button onclick="showPaymentPopup()">شراء</button>
+      <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
     </div>
     <div class="purchase-option">
       <h3>100M عملة</h3>
       <p>25$</p>
-      <button onclick="showPaymentPopup()">شراء</button>
+      <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
     </div>
   </div>
 

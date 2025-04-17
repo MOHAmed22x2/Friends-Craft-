@@ -1,52 +1,78 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Friends Craft | ماين كرافت</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Friends Craft | خادم ماين كرافت</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
+    * {
+      box-sizing: border-box;
       padding: 0;
-      height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url('images/pack.png') no-repeat center center fixed;
-      background-size: cover;
+      margin: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+    }
+
+    /* خلفية فيديو */
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.4);
+    }
+
+    /* حاوية المحتوى */
+    .container {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-family: 'Cairo', sans-serif;
-      color: white;
+      height: 100%;
       text-align: center;
-      animation: fadeIn 1.5s ease-in;
+      padding: 20px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .container {
-      background: rgba(0, 0, 0, 0.8);
-      padding: 40px 30px;
+    .glass-box {
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 20px;
-      max-width: 500px;
-      width: 90%;
-      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+      padding: 40px 30px;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 0 20px rgba(255, 180, 0, 0.3);
+      animation: fadeInUp 1.2s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1 {
-      font-size: 36px;
-      font-weight: 700;
-      background: linear-gradient(90deg, #ff9900, #ffcc00);
+      font-size: 40px;
+      background: linear-gradient(90deg, #ff8c00, #ffd700);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     p {
       font-size: 18px;
+      color: #fff;
       margin-bottom: 25px;
     }
 
@@ -54,74 +80,101 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .main-button {
-      padding: 12px 25px;
-      font-size: 18px;
-      font-weight: bold;
-      background: linear-gradient(135deg, #ff8c00, #ffaa00);
+      background: linear-gradient(135deg, #ff9d00, #ffc107);
       color: white;
-      text-decoration: none;
+      font-weight: bold;
+      padding: 12px 24px;
       border: none;
       border-radius: 12px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(255, 170, 0, 0.4);
+      text-decoration: none;
+      font-size: 18px;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(255, 187, 0, 0.4);
     }
 
     .main-button:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(255, 170, 0, 0.6);
+      box-shadow: 0 6px 18px rgba(255, 187, 0, 0.6);
     }
 
     .server-info {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 12px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px;
       border-radius: 10px;
-      font-size: 16px;
+      color: #fff;
       font-weight: bold;
+      font-size: 16px;
     }
 
     .server-info span {
       display: block;
-      color: #ffd700;
+      color: #ffeb3b;
       margin-top: 5px;
     }
 
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 28px;
-      }
+    .copy-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #222;
+      color: #ffeb3b;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-      .main-button {
-        font-size: 16px;
-        padding: 10px 18px;
-      }
+    .copy-btn:hover {
+      background: #333;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 28px; }
+      .main-button { font-size: 16px; padding: 10px 20px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- فيديو الخلفية -->
+  <video class="background-video" autoplay muted loop>
+    <source src="https://cdn.pixabay.com/video/2023/10/03/186859-865676805_large.mp4" type="video/mp4">
+    متصفحك لا يدعم الفيديو.
+  </video>
+
   <div class="container">
-    <h1>🎮 Friends Craft</h1>
-    <p>اختر أحد الخيارات للدخول إلى عالمنا الممتع!</p>
+    <div class="glass-box">
+      <h1>🎮 Friends Craft</h1>
+      <p>ادخل معنا عالم من المغامرات والمتعة في سيرفر ماين كرافت العربي الأفضل!</p>
 
-    <div class="buttons">
-      <a href="shop.html" class="main-button">🛒 المتجر</a>
-      <a href="guide.html" class="main-button">📜 شرح اللعبة</a>
-      <a href="rules.html" class="main-button">⚖️ القوانين</a>
-      <a href="about.html" class="main-button">ℹ️ المطورين</a>
-      <a href="https://discord.gg/JaQFXXX8" target="_blank" class="main-button">🎮 ديسكورد</a>
-    </div>
+      <div class="buttons">
+        <a href="shop.html" class="main-button">🛒 المتجر</a>
+        <a href="guide.html" class="main-button">📜 شرح اللعبة</a>
+        <a href="rules.html" class="main-button">⚖️ القوانين</a>
+        <a href="about.html" class="main-button">ℹ️ المطورين</a>
+        <a href="https://discord.gg/JaQFXXX8" class="main-button" target="_blank">🎮 انضم إلى ديسكورد</a>
+      </div>
 
-    <div class="server-info">
-      🔹 <strong>IP السيرفر:</strong>
-      <span>194.104.156.232:25632</span>
-      🔹 <strong>البورت:</strong>
-      <span>25632</span>
+      <div class="server-info">
+        🔹 IP السيرفر:
+        <span id="server-ip">194.104.156.232:25632</span>
+        <button class="copy-btn" onclick="copyIP()">📋 نسخ IP</button>
+      </div>
     </div>
   </div>
+
+  <script>
+    function copyIP() {
+      const ip = document.getElementById('server-ip').innerText;
+      navigator.clipboard.writeText(ip).then(() => {
+        alert("تم نسخ IP السيرفر ✅");
+      });
+    }
+  </script>
 
 </body>
 </html>

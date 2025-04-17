@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قوانين السيرفر</title>
     <style>
-     body {
+        body {
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -17,47 +17,105 @@
             color: white;
             font-family: 'Cairo', sans-serif;
             text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .container {
             padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            max-width: 900px;
+            width: 100%;
         }
+
         h1 {
-            font-size: 2em;
+            font-size: 2.5em;
             color: #ffcc00;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
+
         .rules {
             background-color: #333;
             border-radius: 10px;
             padding: 20px;
             margin: 10px auto;
-            width: 80%;
-            max-width: 700px;
+            width: 100%;
             text-align: left;
+            animation: fadeIn 1s ease-out;
         }
+
         .rules h2 {
-            font-size: 1.5em;
+            font-size: 1.8em;
             color: #ffcc00;
             margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
         }
+
         .rules p {
             font-size: 1.2em;
             margin: 10px 0;
         }
+
         .highlight {
             font-weight: bold;
             color: #ffcc00;
         }
+
         .penalties {
             background-color: #444;
             padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .rules h2 {
+                font-size: 1.4em;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .rules p {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .rules h2 {
+                font-size: 1.2em;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .rules p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <h1>🚫 قوانين السيرفر (ماين كرافت + ديسكورد) 🚫</h1>
         
@@ -97,9 +155,4 @@
             <p><span class="highlight">- المرة الرابعة:</span> حظر دائم من السيرفر.</p>
             <p><span class="highlight">- بالنسبة لاستخدام الـ X-Ray:</span> سيتم تطبيق حظر دائم فورًا في المرة الأولى.</p>
             <p><span class="highlight">- سرقة الحسابات أو التلاعب بالحسابات:</span> حظر دائم مع تقارير إلى الجهات المختصة.</p>
-            <p><span class="highlight">- محاولة تعطيل السيرفر أو التسبب في الـ Lag:</span> حظر دائم ورفع تقرير ضد اللاعب.</p>
-            <p><span class="highlight">- استغلال الأخطاء (Exploiting):</span> حظر دائم مع التحقيق في الحادثة.</p>
-        </div>
-    </div>
-</body>
-</html>
+            <p><span class="highlight">- محاولة تعطيل السيرفر أو التسبب في الـ Lag:</span> حظر دائم ورفع تقرير ضد

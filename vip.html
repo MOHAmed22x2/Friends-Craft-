@@ -15,51 +15,77 @@
       color: white;
       font-family: 'Cairo', sans-serif;
       text-align: center;
+      overflow: hidden;
+      animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
       margin-top: 20px;
+      font-size: 40px;
+      text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.5);
+      color: #f1c40f;
+      animation: fadeInHeader 1.5s ease-out;
+    }
+
+    @keyframes fadeInHeader {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .rank-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      padding: 20px;
+      gap: 30px;
+      padding: 30px;
+      animation: scaleIn 2s ease-out;
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .rank {
-      background-color: #1e1e1e;
-      padding: 25px;
-      width: 300px;
+      background-color: rgba(30, 30, 30, 0.8);
+      padding: 30px;
+      width: 280px;
       border-radius: 15px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
-      transition: transform 0.3s ease;
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .rank:hover {
       transform: scale(1.05);
+      box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.5);
     }
 
     .rank h3 {
-      font-size: 22px;
+      font-size: 24px;
       margin-bottom: 10px;
+      color: #f1c40f;
     }
 
     .buy-button {
       background-color: #28a745;
       color: white;
       border: none;
-      padding: 10px 15px;
+      padding: 12px 20px;
       margin-top: 10px;
       cursor: pointer;
       border-radius: 5px;
       font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .buy-button:hover {
       background-color: #218838;
+      transform: scale(1.1);
     }
 
     .popup {
@@ -81,11 +107,12 @@
       background-color: #28a745;
       color: white;
       border: none;
-      padding: 10px 15px;
+      padding: 12px 20px;
       margin: 5px;
       cursor: pointer;
       border-radius: 5px;
       font-size: 16px;
+      transition: background-color 0.3s ease;
     }
 
     .popup button:hover {
@@ -94,6 +121,49 @@
 
     .popup h2 {
       color: #f1c40f;
+    }
+
+    /* Adjusting for mobile screens */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      .rank {
+        width: 90%;
+        margin-bottom: 20px;
+      }
+
+      .rank-container {
+        gap: 20px;
+      }
+
+      .buy-button {
+        width: 100%;
+        font-size: 18px;
+        padding: 14px;
+      }
+
+      .popup {
+        width: 80%;
+      }
+    }
+
+    /* Adjustments for very small screens */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      .rank {
+        padding: 20px;
+        width: 100%;
+      }
+
+      .buy-button {
+        font-size: 16px;
+        padding: 12px;
+      }
     }
   </style>
 </head>
@@ -202,8 +272,8 @@
     }
 
     function sendViaWhatsApp(method) {
-      let link = method === 'vodafone' ?
-        "https://wa.me/+201062406014?text=تم إرسال الفاتورة عبر فودافون كاش" :
+      let link = method === 'vodafone' ? 
+        "https://wa.me/+201062406014?text=تم إرسال الفاتورة عبر فودافون كاش" : 
         "https://wa.me/+966583734991?text=تم إرسال الفاتورة عبر تحويل بنكي";
       window.open(link, "_blank");
     }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>متجر  𝗠𝗶𝗻𝗲 𝗔𝗿𝗮𝗯𝘀</title>
+  <title>متجر 𝗠𝗶𝗻𝗲 𝗔𝗿𝗮𝗯𝘀</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
@@ -72,25 +72,25 @@
     }
 
     .buy-button {
-      background-color: #f1c40f; /* لون الزر الأصفر */
+      background-color: #f1c40f;
       color: white;
       border: none;
       padding: 15px 30px;
       cursor: pointer;
-      border-radius: 8px; /* زوايا الزر مدورة */
-      font-size: 18px; /* حجم الخط أكبر */
+      border-radius: 8px;
+      font-size: 18px;
       transition: all 0.3s ease;
       margin-top: 15px;
     }
 
     .buy-button:hover {
-      background-color: #e67e22; /* لون مائل إلى البرتقالي عند التمرير */
-      transform: scale(1.1); /* تكبير الزر قليلاً عند التمرير */
-      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3); /* إضافة تأثير الظل */
+      background-color: #e67e22;
+      transform: scale(1.1);
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
     }
 
     .buy-button:active {
-      transform: scale(1.05); /* تأثير عند الضغط على الزر */
+      transform: scale(1.05);
     }
 
     .popup {
@@ -128,7 +128,15 @@
       color: #f1c40f;
     }
 
-    /* Adjusting for mobile screens */
+    input[type="file"] {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #555;
+      color: white;
+      width: 90%;
+    }
+
     @media (max-width: 768px) {
       h1 {
         font-size: 32px;
@@ -154,7 +162,6 @@
       }
     }
 
-    /* Adjustments for very small screens */
     @media (max-width: 480px) {
       h1 {
         font-size: 28px;
@@ -176,7 +183,6 @@
 
   <h1>💰 شراء فلوس داخل اللعبة</h1>
   <div class="rank-container">
-    <!-- إضافة مربعات سوداء للفئات -->
     <div class="rank">
       <h3>500,000 عملة</h3>
       <p>1$</p>
@@ -224,25 +230,39 @@
     <button onclick="closePopup()">❌ إغلاق</button>
   </div>
 
+  <div class="popup" id="uploadReceiptForm">
+    <h2>📤 إرسال الفاتورة</h2>
+    <p>بعد التحويل، يمكنك:</p>
+    <button onclick="window.open('https://wa.me/201012345678', '_blank')">📱 إرسال على واتساب</button>
+    <br /><br />
+    <label for="receiptInput" style="display:block; margin-bottom:10px;">أو ارفع صورة للفاتورة:</label>
+    <input type="file" id="receiptInput" accept="image/*" />
+    <br /><br />
+    <button onclick="alert('تم إرسال الفاتورة!')">✅ تأكيد الإرسال</button>
+    <button onclick="closePopup()">❌ إغلاق</button>
+  </div>
+
   <script>
-    // Show the payment popup
     function showPaymentPopup() {
+      closePopup();
       document.getElementById("paymentPopup").style.display = "block";
     }
 
-    // Show the bank details popup
     function showBankDetails() {
-      document.getElementById("paymentPopup").style.display = "none";
+      closePopup();
       document.getElementById("bankDetails").style.display = "block";
     }
 
-    // Show the Vodafone details popup
     function showVodafoneDetails() {
-      document.getElementById("paymentPopup").style.display = "none";
+      closePopup();
       document.getElementById("vodafoneDetails").style.display = "block";
     }
 
-    // Close any open popup
+    function showUploadReceiptForm() {
+      closePopup();
+      document.getElementById("uploadReceiptForm").style.display = "block";
+    }
+
     function closePopup() {
       var popups = document.querySelectorAll('.popup');
       popups.forEach(function(popup) {

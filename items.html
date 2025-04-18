@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,17 @@
             color: white;
             font-family: 'Cairo', sans-serif;
             text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            width: 100%;
+            color: #f1c40f;
+            font-size: 36px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
         }
 
         .container {
@@ -26,17 +37,19 @@
         }
 
         .box {
-            background-color: #1e1e1e;
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 25px;
-            width: 400px;  /* تكبير العرض */
+            width: 400px;
             border-radius: 15px;
             box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUp 0.6s ease-out;
         }
 
         .box:hover {
             transform: scale(1.05);
+            box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.4);
         }
 
         .box h2 {
@@ -45,7 +58,7 @@
         }
 
         .box img {
-            width: 400px; /* تكبير الصور */
+            width: 400px;
             height: 400px;
             margin-bottom: 20px;
             border-radius: 10px;
@@ -57,21 +70,24 @@
             transform: scale(1.1);
         }
 
-         .buy-button {
+        .buy-button {
             background-color: #28a745;
             color: white;
             border: none;
-            padding: 10px 15px;
+            padding: 12px 18px;
             margin-top: 10px;
             cursor: pointer;
             border-radius: 5px;
             font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .buy-button:hover {
             background-color: #218838;
+            transform: scale(1.05);
         }
 
+        /* Popup Styles */
         .popup {
             display: none;
             position: fixed;
@@ -84,6 +100,7 @@
             box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
             width: 350px;
             text-align: center;
+            animation: fadeInUp 0.5s ease-out;
         }
 
         .popup button {
@@ -95,18 +112,53 @@
             cursor: pointer;
             border-radius: 5px;
             font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .popup button:hover {
             background-color: #218838;
+            transform: scale(1.05);
         }
 
         .popup h2 {
             color: #f1c40f;
         }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
+
     <header>
         <h1>🎁 متجر الموارد و المفاتيح</h1>
     </header>
@@ -150,8 +202,6 @@
         </div>
     </div>
 
-   
-
     <div class="popup" id="paymentPopup">
         <h2>💳 اختر طريقة الدفع</h2>
         <button onclick="showBankDetails()">🏦 تحويل بنكي</button>
@@ -181,54 +231,4 @@
         <h2>📄 طرق إرسال الفاتورة</h2>
         <p>يرجى إرسال الفاتورة عبر إحدى الطرق التالية:</p>
         <button onclick="sendViaWhatsApp('vodafone')">📲 إرسال عبر WhatsApp (فودافون كاش)</button>
-        <button onclick="sendViaWhatsApp('bank')">🏦 إرسال عبر WhatsApp (تحويل بنكي)</button>
-        <button onclick="sendViaDiscord()">🎮 إرسال عبر Discord</button>
-        <button onclick="closePopup()">❌ إغلاق</button>
-    </div>
-
-    <script>
-        function showPaymentPopup() {
-            closePopup();
-            document.getElementById("paymentPopup").style.display = "block";
-        }
-
-        function showBankDetails() {
-            closePopup();
-            document.getElementById("bankDetails").style.display = "block";
-        }
-
-        function showVodafoneDetails() {
-            closePopup();
-            document.getElementById("vodafoneDetails").style.display = "block";
-        }
-
-        function showUploadReceiptForm(paymentMethod) {
-            closePopup();
-            document.getElementById("uploadReceiptPopup").style.display = "block";
-        }
-
-        function closePopup() {
-            document.querySelectorAll(".popup").forEach(popup => {
-                popup.style.display = "none";
-            });
-        }
-
-        function sendViaWhatsApp(method) {
-            let whatsappLink = method === 'vodafone' ? 
-                "https://wa.me/+201062406014?text=تم إرسال الفاتورة عبر فودافون كاش" :
-                "https://wa.me/+966583734991?text=تم إرسال الفاتورة عبر تحويل بنكي";
-            window.open(whatsappLink, "_blank");
-        }
-
-  
-
-
-
-
-        function sendViaDiscord() {
-            window.open("https://discord.gg/JaQFXXX8", "_blank");
-        }
-    </script>
-
-</body>
-</html>
+        <button onclick="send

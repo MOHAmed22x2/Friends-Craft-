@@ -15,7 +15,7 @@
       color: white;
       font-family: 'Cairo', sans-serif;
       text-align: center;
-      overflow: hidden;
+      overflow-x: hidden; /* إزالة overflow hidden بشكل عام */
       animation: fadeIn 2s ease-out;
     }
 
@@ -28,7 +28,7 @@
       margin-top: 20px;
       font-size: 40px;
       text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.5);
-      color: #3498db; /* تغيير اللون إلى الأزرق */
+      color: #3498db;
       animation: fadeInHeader 1.5s ease-out;
     }
 
@@ -53,8 +53,8 @@
 
     .rank {
       background-color: rgba(30, 30, 30, 0.8);
-      padding: 30px;
-      width: 280px;
+      padding: 20px;
+      width: 250px;
       border-radius: 15px;
       box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -66,25 +66,25 @@
     }
 
     .rank h3 {
-      font-size: 24px;
+      font-size: 20px;
       margin-bottom: 10px;
-      color: #3498db; /* تغيير اللون إلى الأزرق */
+      color: #3498db;
     }
 
     .buy-button {
-      background-color: #3498db; /* تغيير اللون إلى الأزرق */
+      background-color: #3498db;
       color: white;
       border: none;
-      padding: 15px 30px;
+      padding: 12px 25px;
       cursor: pointer;
       border-radius: 8px;
-      font-size: 18px;
+      font-size: 16px;
       transition: all 0.3s ease;
       margin-top: 15px;
     }
 
     .buy-button:hover {
-      background-color: #2980b9; /* درجة أغمق من الأزرق */
+      background-color: #2980b9;
       transform: scale(1.1);
       box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
     }
@@ -125,7 +125,7 @@
     }
 
     .popup h2 {
-      color: #3498db; /* تغيير اللون إلى الأزرق */
+      color: #3498db;
     }
 
     input[type="file"] {
@@ -143,8 +143,9 @@
       }
 
       .rank {
-        width: 90%;
+        width: 100%;
         margin-bottom: 20px;
+        padding: 15px;
       }
 
       .rank-container {
@@ -153,7 +154,7 @@
 
       .buy-button {
         width: 100%;
-        font-size: 18px;
+        font-size: 16px;
         padding: 14px;
       }
 
@@ -168,12 +169,12 @@
       }
 
       .rank {
-        padding: 20px;
+        padding: 15px;
         width: 100%;
       }
 
       .buy-button {
-        font-size: 16px;
+        font-size: 14px;
         padding: 12px;
       }
     }

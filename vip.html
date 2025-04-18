@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>متجر  𝗠𝗶𝗻𝗲 𝗔𝗿𝗮𝗯𝘀</title>
+  <title>متجر Mine Arabs</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
@@ -15,77 +15,74 @@
       color: white;
       font-family: 'Cairo', sans-serif;
       text-align: center;
-      overflow: hidden;
-      animation: fadeIn 2s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
-      margin-top: 20px;
+      margin-top: 30px;
       font-size: 40px;
-      text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.5);
-      color: #f1c40f;
-      animation: fadeInHeader 1.5s ease-out;
-    }
-
-    @keyframes fadeInHeader {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+      color: #00aaff;
+      text-shadow: 2px 2px 10px rgba(0, 170, 255, 0.6);
     }
 
     .rank-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
-      padding: 30px;
-      animation: scaleIn 2s ease-out;
-    }
-
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
+      gap: 25px;
+      padding: 40px 20px;
     }
 
     .rank {
-      background-color: rgba(30, 30, 30, 0.8);
-      padding: 30px;
-      width: 280px;
-      border-radius: 15px;
-      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: rgba(0, 0, 50, 0.7);
+      border: 2px solid #00aaff;
+      border-radius: 20px;
+      width: 260px;
+      padding: 25px;
+      box-shadow: 0px 5px 20px rgba(0, 170, 255, 0.2);
+      transition: transform 0.3s ease;
     }
 
     .rank:hover {
       transform: scale(1.05);
-      box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 8px 25px rgba(0, 170, 255, 0.4);
     }
 
     .rank h3 {
-      font-size: 24px;
+      font-size: 22px;
+      color: #00cfff;
       margin-bottom: 10px;
-      color: #f1c40f;
     }
 
     .buy-button {
-      background-color: #28a745;
+      background-color: #007bff;
       color: white;
       border: none;
-      padding: 12px 20px;
-      margin-top: 10px;
-      cursor: pointer;
-      border-radius: 5px;
+      padding: 10px 25px;
+      border-radius: 8px;
       font-size: 16px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     .buy-button:hover {
-      background-color: #218838;
-      transform: scale(1.1);
+      background-color: #0056b3;
+    }
+
+    .discord-button {
+      display: inline-block;
+      margin: 40px auto 20px;
+      background-color: #5865F2;
+      color: white;
+      padding: 15px 35px;
+      border-radius: 50px;
+      font-size: 18px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .discord-button:hover {
+      background-color: #4752c4;
     }
 
     .popup {
@@ -94,82 +91,49 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: #1e1e1e;
+      background-color: #0e1b30;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
-      width: 350px;
+      box-shadow: 0px 0px 20px rgba(0, 170, 255, 0.3);
+      width: 90%;
+      max-width: 400px;
       text-align: center;
-      z-index: 1000;
+      z-index: 9999;
     }
 
     .popup button {
-      background-color: #28a745;
+      background-color: #007bff;
       color: white;
       border: none;
-      padding: 12px 20px;
-      margin: 5px;
+      padding: 10px 20px;
+      margin: 8px;
+      border-radius: 8px;
       cursor: pointer;
-      border-radius: 5px;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
     }
 
     .popup button:hover {
-      background-color: #218838;
+      background-color: #0056b3;
     }
 
-    .popup h2 {
-      color: #f1c40f;
-    }
-
-    /* Adjusting for mobile screens */
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       h1 {
-        font-size: 32px;
+        font-size: 30px;
       }
 
       .rank {
         width: 90%;
-        margin-bottom: 20px;
       }
 
-      .rank-container {
-        gap: 20px;
-      }
-
-      .buy-button {
-        width: 100%;
-        font-size: 18px;
-        padding: 14px;
-      }
-
-      .popup {
-        width: 80%;
-      }
-    }
-
-    /* Adjustments for very small screens */
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 28px;
-      }
-
-      .rank {
-        padding: 20px;
-        width: 100%;
-      }
-
-      .buy-button {
+      .discord-button {
+        width: 90%;
         font-size: 16px;
-        padding: 12px;
       }
     }
   </style>
 </head>
 <body>
 
-  <h1>𝗠𝗶𝗻𝗲 𝗔𝗿𝗮𝗯𝘀!</h1>
+  <h1>🛒 متجر Mine Arabs</h1>
 
   <div class="rank-container">
     <div class="rank">
@@ -211,77 +175,9 @@
     </div>
   </div>
 
-  <!-- النوافذ المنبثقة -->
-  <div class="popup" id="paymentPopup">
-    <h2>💳 اختر طريقة الدفع</h2>
-    <button onclick="showBankDetails()">🏦 تحويل بنكي</button>
-    <button onclick="showVodafoneDetails()">📱 فودافون كاش</button>
-    <button onclick="closePopup()">❌ إغلاق</button>
-  </div>
+  <a href="https://discord.gg/JaQFXXX8" target="_blank" class="discord-button">🎮 انضم لديسكورد</a>
 
-  <div class="popup" id="bankDetails">
-    <h2>🏦 تفاصيل التحويل البنكي</h2>
-    <p><strong>البنك:</strong> البنك العربي الوطني</p>
-    <p><strong>اسم المستفيد:</strong> زياد تركي الجدعاني</p>
-    <p><strong>الآيبان:</strong> SA0330100991109061017302</p>
-    <p><strong>رقم الحساب:</strong> 991109061017302</p>
-    <button onclick="showUploadReceiptForm()">📄 طرق إرسال الفاتورة</button>
-    <button onclick="closePopup()">❌ إغلاق</button>
-  </div>
-
-  <div class="popup" id="vodafoneDetails">
-    <h2>📱 بيانات الدفع عبر فودافون كاش</h2>
-    <p><strong>الاسم:</strong> mado</p>
-    <p><strong>رقم التحويل:</strong> 01062406014</p>
-    <button onclick="showUploadReceiptForm()">📄 طرق إرسال الفاتورة</button>
-    <button onclick="closePopup()">❌ إغلاق</button>
-  </div>
-
-  <div class="popup" id="uploadReceiptPopup">
-    <h2>📄 طرق إرسال الفاتورة</h2>
-    <p>يرجى إرسال الفاتورة عبر إحدى الطرق التالية:</p>
-    <button onclick="sendViaWhatsApp('vodafone')">📲 WhatsApp (فودافون كاش)</button>
-    <button onclick="sendViaWhatsApp('bank')">🏦 WhatsApp (تحويل بنكي)</button>
-    <button onclick="sendViaDiscord()">🎮 Discord</button>
-    <button onclick="closePopup()">❌ إغلاق</button>
-  </div>
-
-  <script>
-    function showPaymentPopup() {
-      closePopup();
-      document.getElementById("paymentPopup").style.display = "block";
-    }
-
-    function showBankDetails() {
-      closePopup();
-      document.getElementById("bankDetails").style.display = "block";
-    }
-
-    function showVodafoneDetails() {
-      closePopup();
-      document.getElementById("vodafoneDetails").style.display = "block";
-    }
-
-    function showUploadReceiptForm() {
-      closePopup();
-      document.getElementById("uploadReceiptPopup").style.display = "block";
-    }
-
-    function closePopup() {
-      document.querySelectorAll(".popup").forEach(p => p.style.display = "none");
-    }
-
-    function sendViaWhatsApp(method) {
-      let link = method === 'vodafone' ? 
-        "https://wa.me/+201062406014?text=تم إرسال الفاتورة عبر فودافون كاش" : 
-        "https://wa.me/+966583734991?text=تم إرسال الفاتورة عبر تحويل بنكي";
-      window.open(link, "_blank");
-    }
-
-    function sendViaDiscord() {
-      window.open("https://discord.gg/JaQFXXX8", "_blank");
-    }
-  </script>
+  <!-- نوافذ الدفع كما هي (يمكنك لصق نفس النوافذ الموجودة عندك هنا بدون تعديل) -->
 
 </body>
 </html>

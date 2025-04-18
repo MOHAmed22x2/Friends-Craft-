@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> 𝗠𝗶𝗻𝗲 𝗔𝗿𝗮𝗯𝘀 | ماين كرافت</title>
+  <title>𝗠𝗶𝗻𝗲 𝗔𝗿𝗮𝗯𝘀 | ماين كرافت</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -31,7 +31,7 @@
       background: rgba(0, 0, 0, 0.8);
       padding: 40px 30px;
       border-radius: 20px;
-      max-width: 500px;
+      max-width: 600px;
       width: 90%;
       box-shadow: 0 0 30px rgba(0,0,0,0.5);
     }
@@ -52,13 +52,16 @@
 
     .buttons {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 15px;
       margin-bottom: 20px;
     }
 
     .main-button {
-      padding: 12px 25px;
+      flex: 1 1 45%;
+      min-width: 120px;
+      padding: 12px 20px;
       font-size: 18px;
       font-weight: bold;
       background: linear-gradient(135deg, #ff8c00, #ffaa00);
@@ -68,6 +71,7 @@
       border-radius: 12px;
       transition: all 0.3s ease;
       box-shadow: 0 4px 10px rgba(255, 170, 0, 0.4);
+      text-align: center;
     }
 
     .main-button:hover {
@@ -111,7 +115,12 @@
         font-size: 28px;
       }
 
+      .buttons {
+        flex-direction: column;
+      }
+
       .main-button {
+        flex: 1 1 100%;
         font-size: 16px;
         padding: 10px 18px;
       }
@@ -125,7 +134,7 @@
 <body>
 
   <div class="container">
-    <h1>🎮  𝗠𝗶𝗻𝗲 𝗔𝗿𝗮𝗯𝘀</h1>
+    <h1>🎮 𝗠𝗶𝗻𝗲 𝗔𝗿𝗮𝗯𝘀</h1>
     <p>اختر أحد الخيارات للدخول إلى عالمنا الممتع!</p>
 
     <div class="buttons">
@@ -142,6 +151,7 @@
       🔹 <strong>البورت:</strong>
       <span>25632</span>
     </div>
+  </div>
 
 </body>
 </html>

@@ -200,47 +200,11 @@
             <p>السعر: 3 دولار</p>
             <button class="buy-button" onclick="showPaymentPopup()">شراء</button>
         </div>
-    </div>
+   </div>
   <!-- النوافذ المنبثقة -->
   <div class="popup" id="paymentPopup">
     <h2>💳 اختر طريقة الدفع</h2>
-    <button onclick="showBankDetails()">🏦 تحويل بنكي</button>
-    <button onclick="showVodafoneDetails()">📱 فودافون كاش</button>
-    <button onclick="closePopup()">❌ إغلاق</button>
-  </div>
 
-  <div class="popup" id="bankDetails">
-    <h2>🏦 تفاصيل التحويل البنكي</h2>
-    <p><strong>البنك:</strong> البنك العربي الوطني</p>
-    <p><strong>اسم المستفيد:</strong> زياد تركي الجدعاني</p>
-    <p><strong>الآيبان:</strong> SA0330100991109061017302</p>
-    <p><strong>رقم الحساب:</strong> 991109061017302</p>
-    <button onclick="showUploadReceiptForm()">📄 طرق إرسال الفاتورة</button>
-    <button onclick="closePopup()">❌ إغلاق</button>
-  </div>
-
-  <div class="popup" id="vodafoneDetails">
-    <h2>📱 بيانات الدفع عبر فودافون كاش</h2>
-    <p><strong>رقم الموبايل:</strong> 01012345678</p>
-    <p><strong>الاسم:</strong> زياد تركي الجدعاني</p>
-    <button onclick="closePopup()">❌ إغلاق</button>
-  </div>
-
-  <div class="popup" id="uploadReceiptForm">
-    <h2>📤 إرسال الفاتورة</h2>
-    <p>بعد التحويل، يمكنك:</p>
-    <button onclick="window.open('https://wa.me/201012345678', '_blank')">📱 إرسال على واتساب</button>
-    <br /><br />
-    <label for="receiptInput" style="display:block; margin-bottom:10px;">أو ارفع صورة للفاتورة:</label>
-    <input type="file" id="receiptInput" accept="image/*" />
-    <br /><br />
-    <button onclick="alert('تم إرسال الفاتورة!')">✅ تأكيد الإرسال</button>
-    <button onclick="closePopup()">❌ إغلاق</button>
-  </div>
-  <!-- النوافذ المنبثقة -->
-  <div class="popup" id="paymentPopup">
-    <h2>💳 اختر طريقة الدفع</h2>
-    <button onclick="showBankDetails()">🏦 تحويل بنكي</button>
     <button onclick="showVodafoneDetails()">📱 فودافون كاش</button>
     <button onclick="closePopup()">❌ إغلاق</button>
   </div>
